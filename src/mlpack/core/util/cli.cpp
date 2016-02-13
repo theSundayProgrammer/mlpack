@@ -10,7 +10,6 @@
 #include <boost/scoped_ptr.hpp>
 #include <iostream>
 #include <string>
-
 #include "cli.hpp"
 #include "log.hpp"
 #include "cli_deleter.hpp" // To make sure we can delete the singleton.
@@ -244,12 +243,9 @@ void CLI::DefaultMessages()
  */
 void CLI::Destroy()
 {
-  if (singleton != NULL)
-  {
     delete singleton;
     singleton = NULL; // Reset pointer.
   }
-}
 
 /**
  * See if the specified flag was found while parsing.
@@ -370,10 +366,8 @@ std::string CLI::GetDescription(const std::string& identifier)
 // Returns the sole instance of this class.
 CLI& CLI::GetSingleton()
 {
-  if (singleton == NULL)
-    singleton = new CLI();
-
-  return *singleton;
+  static CLI instance;
+  return instance;
 }
 
 /**

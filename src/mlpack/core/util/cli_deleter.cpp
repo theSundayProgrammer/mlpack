@@ -13,20 +13,3 @@
 
 using namespace mlpack;
 using namespace mlpack::util;
-
-/***
- * Empty constructor that does nothing.
- */
-CLIDeleter::CLIDeleter()
-{
-  /* Nothing to do. */
-}
-
-/***
- * This destructor deletes the CLI singleton.
- */
-CLIDeleter::~CLIDeleter()
-{
-  // Delete the singleton!
-  CLI::Destroy();
-}
