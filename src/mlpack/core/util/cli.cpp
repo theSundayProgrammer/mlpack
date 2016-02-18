@@ -12,13 +12,11 @@
 #include <string>
 #include "cli.hpp"
 #include "log.hpp"
-#include "cli_deleter.hpp" // To make sure we can delete the singleton.
 #include "option.hpp"
 
 using namespace mlpack;
 using namespace mlpack::util;
 
-CLI* CLI::singleton = NULL;
 
 /* For clarity, we will alias boost's namespace. */
 namespace po = boost::program_options;
@@ -33,23 +31,7 @@ CLI::CLI() : desc("Allowed Options") , didParse(false), doc(&emptyProgramDoc)
   return;
 }
 
-/**
- * Initialize desc with a particular name.
- *
- * @param optionsName Name of the module, as far as boost is concerned.
- */
-CLI::CLI(const std::string& optionsName) :
-    desc(optionsName), didParse(false), doc(&emptyProgramDoc)
-{
-  return;
-}
 
-// Private copy constructor; don't want copies floating around.
-CLI::CLI(const CLI& other) : desc(other.desc),
-    didParse(false), doc(&emptyProgramDoc)
-{
-  return;
-}
 
 CLI::~CLI()
 {
@@ -235,17 +217,6 @@ void CLI::DefaultMessages()
   // message twice if the user just asked for help or information.
   Log::Debug << "Compiled with debugging symbols." << std::endl;
 }
-
-/**
- * Destroy the CLI object.  This resets the pointer to the singleton, so in case
- * someone tries to access it after destruction, a new one will be made (the
- * program will not fail).
- */
-void CLI::Destroy()
-{
-    delete singleton;
-    singleton = NULL; // Reset pointer.
-  }
 
 /**
  * See if the specified flag was found while parsing.

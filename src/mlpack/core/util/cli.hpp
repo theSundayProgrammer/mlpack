@@ -566,12 +566,7 @@ class CLI
    */
   static void DefaultMessages();
 
-  /**
-   * Destroy the CLI object.  This resets the pointer to the singleton, so in
-   * case someone tries to access it after destruction, a new one will be made
-   * (the program will not fail).
-   */
-  static void Destroy();
+  
 
   /**
    * Grab the value of type T found while parsing.  You can set the value using
@@ -684,8 +679,6 @@ class CLI
   typedef std::map<std::string, std::string> amap_t;
   amap_t aliasValues;
 
-  //! The singleton itself.
-  static CLI* singleton;
 
   //! True, if CLI was used to parse command line options.
   bool didParse;
@@ -756,15 +749,7 @@ class CLI
    */
   CLI();
 
-  /**
-   * Initialize desc with a particular name.
-   *
-   * @param optionsName Name of the module, as far as boost is concerned.
-   */
-  CLI(const std::string& optionsName);
-
-  //! Private copy constructor; we don't want copies floating around.
-  CLI(const CLI& other);
+ 
 };
 
 } // namespace mlpack

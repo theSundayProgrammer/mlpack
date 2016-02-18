@@ -5,8 +5,6 @@ set(SOURCES
   arma_config_check.hpp
   cli.hpp
   cli.cpp
-  cli_deleter.hpp
-  cli_deleter.cpp
   cli_impl.hpp
   log.hpp
   log.cpp
