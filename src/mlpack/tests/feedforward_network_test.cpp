@@ -79,7 +79,7 @@ void BuildVanillaNetwork(MatType& trainData,
 
   OutputLayerType classOutputLayer;
 
-  auto modules = std::tie(inputLayer, inputBiasLayer, inputBaseLayer,
+  auto modules = std::make_tuple(inputLayer, inputBiasLayer, inputBaseLayer,
                           hiddenLayer1, hiddenBiasLayer1, outputLayer);
 
   FFN<decltype(modules), decltype(classOutputLayer), RandomInitialization,

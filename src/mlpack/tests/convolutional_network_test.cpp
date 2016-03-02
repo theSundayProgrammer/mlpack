@@ -109,14 +109,14 @@ void BuildVanillaNetwork()
   biasLayer0.Weights().zeros();
   biasLayer1.Weights().zeros();
 
-  auto modules = std::make_tuple(convLayer01, biasLayer01, baseLayer01, poolingLayer01,
-    convLayer1, biasLayer1, baseLayer1, poolingLayer1,
-    linearLayer01, biasLayer21, softmaxLayer01);
+  //auto modules = std::make_tuple(convLayer01, biasLayer01, baseLayer01, poolingLayer01,
+  //  convLayer1, biasLayer1, baseLayer1, poolingLayer1,
+  //  linearLayer01, biasLayer21, softmaxLayer01);
 
   //
-  //auto modules = std::tie(convLayer0, biasLayer0, baseLayer0, poolingLayer0,
-  //  convLayer1, biasLayer1, baseLayer1, poolingLayer1,
-  //  linearLayer0, biasLayer2, softmaxLayer0);
+  auto modules = std::tie(convLayer0, biasLayer0, baseLayer0, poolingLayer0,
+    convLayer1, biasLayer1, baseLayer1, poolingLayer1,
+    linearLayer0, biasLayer2, softmaxLayer0);
 
   CNN<decltype(modules), decltype(outputLayer),
     RandomInitialization, MeanSquaredErrorFunction> net(std::move(modules), std::move(outputLayer));

@@ -103,8 +103,8 @@ class FFN
    *        object used to claculate the error.
    */
   template<typename LayerType, typename OutputType>
-  FFN(LayerType &&network,
-      OutputType &&outputLayer,
+  FFN(LayerType const &network,
+      OutputType const &outputLayer,
       InitializationRuleType initializeRule = InitializationRuleType(),
       PerformanceFunction performanceFunction = PerformanceFunction());
 

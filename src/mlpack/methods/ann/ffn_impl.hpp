@@ -96,12 +96,12 @@ template<typename LayerTypes,
 >
 template<typename LayerType, typename OutputType>
 FFN<LayerTypes, OutputLayerType, InitializationRuleType, PerformanceFunction
->::FFN(LayerType &&network,
-       OutputType &&outputLayer,
-       InitializationRuleType initializeRule,
-       PerformanceFunction performanceFunction) : 
-    network(std::forward<LayerType>(network)),
-    outputLayer(std::forward<OutputType>(outputLayer)),
+>::FFN(LayerType const &network_,
+  OutputType const &outputLayer_,
+  InitializationRuleType initializeRule = InitializationRuleType(),
+  PerformanceFunction performanceFunction = PerformanceFunction()):
+network(network_),
+    outputLayer(outputLayer_),
     performanceFunc(std::move(performanceFunction))
 {
   static_assert(std::is_same<typename std::decay<LayerType>::type,
