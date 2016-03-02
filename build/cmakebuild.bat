@@ -1,1 +1,12 @@
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -DARMADILLO_INCLUDE_DIR:PATH="C:/usr/include" -DBoost_PROGRAM_OPTIONS_LIBRARY_DEBUG:FILEPATH="C:/usr/lib/x64/boost/libboost_program_options-vc140-mt-1_60.lib" -DBoost_PROGRAM_OPTIONS_LIBRARY_RELEASE:FILEPATH="C:/usr/lib/x64/boost/lib" -DBoost_INCLUDE_DIR:PATH="c:/usr/include" -DBoost_SERIALIZATION_LIBRARY_DEBUG:FILEPATH="C:/usr/lib/x64/boost/libboost_serialization-vc140-mt-1_60.lib" -DACMLMP_LIBRARY:FILEPATH="ACMLMP_LIBRARY-NOTFOUND" -DBoost_LIBRARY_DIR_DEBUG:PATH="C:/usr/lib/x64/boost" -DBLAS_LIBRARY:FILEPATH="C:/usr/lib/x64/Release/libblas.lib" -DBoost_UNIT_TEST_FRAMEWORK_LIBRARY_DEBUG:FILEPATH="C:/usr/lib/x64/boost/libboost_unit_test_framework-vc140-mt-1_60.lib" ..
+"C:\Program Files (x86)\CMake\bin\cmake.exe" ^
+ -G "Visual Studio 14 2015 Win64" ^
+ -DARMADILLO_INCLUDE_DIR:PATH="C:/usr/include" ^
+ -DBoost_PROGRAM_OPTIONS_LIBRARY_DEBUG:FILEPATH="C:/usr/lib/x64/boost/libboost_program_options-vc140-mt-1_60.lib" ^
+ -DBoost_PROGRAM_OPTIONS_LIBRARY_RELEASE:FILEPATH="C:/usr/lib/x64/boost/lib" ^
+ -DBoost_INCLUDE_DIR:PATH="c:/usr/include" ^
+ -DBoost_SERIALIZATION_LIBRARY_DEBUG:FILEPATH="C:/usr/lib/x64/boost/libboost_serialization-vc140-mt-1_60.lib" ^
+ -DACMLMP_LIBRARY:FILEPATH="ACMLMP_LIBRARY-NOTFOUND" ^
+ -DBoost_LIBRARY_DIR_DEBUG:PATH="C:/usr/lib/x64/boost" ^
+ -DBLAS_LIBRARY:FILEPATH="C:/usr/lib/x64/Release/libblas.lib" ^
+ -DLAPACK_LIBRARY:FILEPATH="C:/usr/lib/x64/Release/liblapack.lib" ^
+ -DBoost_UNIT_TEST_FRAMEWORK_LIBRARY_DEBUG:FILEPATH="C:/usr/lib/x64/boost/libboost_unit_test_framework-vc140-mt-1_60.lib" ..
