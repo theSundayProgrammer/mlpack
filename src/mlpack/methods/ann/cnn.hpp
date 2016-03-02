@@ -102,9 +102,9 @@ class CNN
    * @param performanceFunction Optional instantiated PerformanceFunction
    *        object used to claculate the error.
    */
-  template<typename LayerType, typename OutputType>
-  CNN(LayerType &&network,
-      OutputType &&outputLayer,
+  
+  CNN(LayerTypes const &network,
+      OutputLayerType const &outputLayer,
       InitializationRuleType initializeRule = InitializationRuleType(),
       PerformanceFunction performanceFunction = PerformanceFunction());
   /**
@@ -407,7 +407,7 @@ class CNN
   LayerTypes network;
 
   //! The outputlayer used to evaluate the network
-  OutputLayerType& outputLayer;
+  OutputLayerType outputLayer;
 
   //! Performance strategy used to claculate the error.
   PerformanceFunction performanceFunc;
