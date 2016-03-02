@@ -65,7 +65,7 @@ void GenerateNoisySines(arma::mat& data,
     labels(1, sequences + seq) = 1;
   }
 }
-
+#if 0
 /**
  * Train the vanilla network on a larger dataset.
  */
@@ -124,7 +124,7 @@ BOOST_AUTO_TEST_CASE(SequenceClassificationTest)
   double classificationError = 1 - double(error) / labels.n_cols;
   BOOST_REQUIRE_LE(classificationError, 0.2);
 }
-
+#endif
 /**
  * Generate a random Reber grammar.
  *
@@ -406,7 +406,7 @@ void ReberGrammarTestNetwork(HiddenLayerType& hiddenLayer0,
   error /= testReberGrammarCount;
   BOOST_REQUIRE_LE(error, 0.2);
 }
-
+#if 0
 /**
  * Train the specified networks on a Reber grammar dataset.
  */
@@ -424,7 +424,7 @@ BOOST_AUTO_TEST_CASE(EmbeddedReberGrammarTest)
   LSTMLayer<> hiddenLayerLSTM(10);
   ReberGrammarTestNetwork(hiddenLayerLSTM, true);
 }
-
+#endif 
 /*
  * This sample is a simplified version of Derek D. Monner's Distracted Sequence
  * Recall task, which involves 10 symbols:
@@ -573,7 +573,7 @@ void DistractedSequenceRecallTestNetwork(HiddenLayerType& hiddenLayer0)
   // paper's results (plus a little bit for noise).
   BOOST_REQUIRE_LE(error, 0.1);
 }
-
+#if 0
 /**
  * Train the specified networks on the Derek D. Monner's distracted sequence
  * recall task.
@@ -583,5 +583,5 @@ BOOST_AUTO_TEST_CASE(DistractedSequenceRecallTest)
   LSTMLayer<> hiddenLayerLSTMPeephole(10, true);
   DistractedSequenceRecallTestNetwork(hiddenLayerLSTMPeephole);  
 }
-
+#endif 
 BOOST_AUTO_TEST_SUITE_END();
